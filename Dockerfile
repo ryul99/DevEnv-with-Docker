@@ -1,5 +1,3 @@
-FROM centos:7
-
-VOLUME [ "/home/ryul99/Desktop/Workspace/docker_project" ]
+FROM centosbase
 
 CMD /bin/bash

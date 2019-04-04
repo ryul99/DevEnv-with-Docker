@@ -16,4 +16,4 @@ useradd --shell /bin/bash -u $USER_ID -g $GROUP_ID -o -c "" -M $USER_NAME
 export HOME=$USER_HOME
 export USER=$USER_NAME
 
-exec /usr/local/bin/gosu "$USER_NAME" "$@"
+exec /usr/local/bin/gosu "$USER_ID" "$@"

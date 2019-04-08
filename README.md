@@ -11,3 +11,16 @@ making user-based development environment on linux with docker
 3. Container connection with ssh is needed
 4. Deal with multiple user login
 5. limit usage of user if possible
+
+# How to run
+## Dev Build
+1. `sudo ./make.sh`
+2. `sudo ./run.sh`
+
+## Deploy
+1. add user to sudoers (this user only can run `host_*.sh`)
+2. `sudo ./make.sh` for default image
+
+# need to check
+
+1. migrating group

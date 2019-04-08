@@ -14,7 +14,7 @@ echo "Starting with UID : $USER_ID, GID: $GROUP_ID, USERNAME : $USER_NAME, GROUP
 groupadd -g $GROUP_ID -o $GROUP_NAME
 useradd --shell /bin/bash -u $USER_ID -g $GROUP_ID -o -c "" -M $USER_NAME
 chmod u+w /etc/sudoers
-echo "$USER_NAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+echo "#$USER_ID ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 chmod u-w /etc/sudoers
 export HOME=$USER_HOME
 export USER=$USER_NAME

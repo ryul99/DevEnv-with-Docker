@@ -1,4 +1,4 @@
 #!/bin/bash
 
 docker build -t centosbase ./base
-docker build -t centostest .
+docker build -t $SUDO_USER .

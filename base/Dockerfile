@@ -2,7 +2,7 @@ FROM centos:7
 
 RUN yum -y update && yum -y install \
     ca-certificates \
-    curl\
+    curl \
     sudo
 
 RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4

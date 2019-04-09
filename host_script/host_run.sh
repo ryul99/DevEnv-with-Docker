@@ -1,10 +1,10 @@
 #!/bin/bash
 
-printf "Type image tag to turn on"
+printf "Type image tag to turn on : "
 read i1
-printf "Type container number to be (only number)"
+printf "Type container number to be (only number) : "
 read i2
-printf 'Type command to run (to turn on terminal, type "/bin/bash")'
+printf 'Type command to run (to turn on terminal, type "/bin/bash") : '
 read i3
 USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
 

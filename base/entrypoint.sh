@@ -10,16 +10,18 @@ USER_NAME=${LOCAL_USER_NAME:-$USER_ID}
 GROUP_NAME=$USER_NAME
 USER_HOME=${LOCAL_USER_HOME:-"/home/$USER_NAME"}
 
-echo "Starting with UID : $USER_ID, GID: $GROUP_ID, USERNAME : $USER_NAME, GROUPNAME : $GROUP_NAME, USERHOME : $USER_HOME"
-groupadd -g $GROUP_ID -o $GROUP_NAME
-useradd --shell /bin/bash -u $USER_ID -g $GROUP_ID -o -c "" -M $USER_NAME
-echo 'snip' | passwd $USER_NAME --stdin
-chmod u+w /etc/sudoers
-echo "#$USER_ID ALL=(ALL) ALL" >> /etc/sudoers
-chmod u-w /etc/sudoers
-export HOME=$USER_HOME
-export USER=$USER_NAME
-
+if [ ! $(getent passwd $USER_ID) ]
+then
+    echo "Starting with UID : $USER_ID, GID: $GROUP_ID, USERNAME : $USER_NAME, GROUPNAME : $GROUP_NAME, USERHOME : $USER_HOME"
+    groupadd -g $GROUP_ID -o $GROUP_NAME
+    useradd --shell /bin/bash -u $USER_ID -g $GROUP_ID -o -c "" -M $USER_NAME
+    echo 'snip' | passwd $USER_NAME --stdin
+    chmod u+w /etc/sudoers
+    echo "#$USER_ID ALL=(ALL) ALL" >> /etc/sudoers
+    chmod u-w /etc/sudoers
+    export HOME=$USER_HOME
+    export USER=$USER_NAME
+fi
 # exec /usr/local/bin/gosu "$USER_ID" "$@"
 # at least one process should run on docker to persist.
 # this process should not be used

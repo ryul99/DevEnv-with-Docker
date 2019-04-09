@@ -8,6 +8,9 @@ making user-based development environment on linux with docker
 2. Handling user
     - file in container home folder must have same user as host
     - [link](https://denibertovic.com/posts/handling-permissions-with-docker-volumes/)
+        - In this case, one container is used by only one user. So user should be hard coded.
+        - Above link make user is added every time when container is started
+        - entrypoint.sh should be modified
 3. Container connection with ssh is needed
 4. Deal with multiple user login
 5. limit usage of user if possible

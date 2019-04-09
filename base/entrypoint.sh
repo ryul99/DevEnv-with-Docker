@@ -23,6 +23,4 @@ then
     export USER=$USER_NAME
 fi
 # exec /usr/local/bin/gosu "$USER_ID" "$@"
-# at least one process should run on docker to persist.
-# this process should not be used
-exec /usr/local/bin/gosu "0" "$@"
+exec /usr/local/bin/gosu "$USER_ID" "$@"

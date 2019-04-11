@@ -22,5 +22,6 @@ then
     export HOME=$USER_HOME
     export USER=$USER_NAME
 fi
+printf "Enter 'Ctrl + p', 'Ctrl + q' sequence to disconnect container\n"
 # exec /usr/local/bin/gosu "$USER_ID" "$@"
 exec /usr/local/bin/gosu "$USER_ID" "$@"

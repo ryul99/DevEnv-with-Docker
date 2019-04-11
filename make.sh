@@ -1,4 +1,4 @@
 #!/bin/bash
 
 docker build -t centosbase ./base
-docker build -t "${SUDO_USER}:$1" .
+docker build -t "base" .

@@ -13,7 +13,7 @@ else
     i1="${SUDO_USER}:$i1"
 fi
 
-printf "image name : $i1\n"
+printf "image tag : $i1\n"
 
 USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
 

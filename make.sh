@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker build -t ryul99/dev-env:centos-essential ./base
-docker build -t ryul99/dev-env:latest ./fully
+docker build -t centos-essential ./base
+docker build -t base ./fully

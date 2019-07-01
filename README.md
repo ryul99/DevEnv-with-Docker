@@ -20,5 +20,5 @@ making user-based development environment on linux with docker
 2. `sudo ./run.sh`
 
 ## Deploy
-1. add user to sudoers (this user only can run `host_*.sh` with `sudo`)
+1. add user to sudoers (this user only can run `docker_*` with `sudo`)
 2. `sudo ./make.sh` for default image

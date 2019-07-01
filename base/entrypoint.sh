@@ -15,7 +15,7 @@ then
     echo "Starting with UID : $USER_ID, GID: $GROUP_ID, USERNAME : $USER_NAME, GROUPNAME : $GROUP_NAME, USERHOME : $USER_HOME"
     groupadd -g $GROUP_ID -o $GROUP_NAME
     useradd --shell /bin/bash -u $USER_ID -g $GROUP_ID -o -c "" -M $USER_NAME
-    echo 'snip' | passwd $USER_NAME --stdin
+    echo '' | passwd $USER_NAME --stdin
     chmod u+w /etc/sudoers
     echo "#$USER_ID ALL=(ALL) ALL" >> /etc/sudoers
     chmod u-w /etc/sudoers
@@ -23,5 +23,4 @@ then
     export USER=$USER_NAME
 fi
 printf "Enter 'Ctrl + p', 'Ctrl + q' sequence to disconnect container\n"
-# exec /usr/local/bin/gosu "$USER_ID" "$@"
 exec /usr/local/bin/gosu "$USER_ID" "$@"

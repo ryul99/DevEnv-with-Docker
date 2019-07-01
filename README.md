@@ -9,9 +9,8 @@ making user-based development environment on linux with docker
 1. PID 1 is `init` process
 
 # How to run
-## Dev Build
+## Build
 1. `sudo ./make.sh`
-2. `sudo ./run.sh`
 
 ## Deploy
 1. add user or group to sudoers (this user only can run `docker_*` with `sudo`)

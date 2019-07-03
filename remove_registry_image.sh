@@ -10,4 +10,4 @@ curl -v -sSL -X DELETE "http://${registry}/v2/${name}/manifests/$(
     | awk '$1 == "Docker-Content-Digest:" { print $2 }' \
     | tr -d $'\r' \
 )"
-printf "Please run 'docker exec -it docker-registry bin/registry garbage-collect /etc/docker/registry/config.yml'\n"
+printf "Please run 'docker exec -it docker-registry bin/registry garbage-collect /etc/docker/registry/config.yml' at registry server\n"

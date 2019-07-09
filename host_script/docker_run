@@ -7,8 +7,10 @@ read i2
 # printf 'Type command to run (to turn on terminal, type "/bin/bash") : '
 # read i3
 # i3=${i3:-"/bin/bash"}
+ipaddress='192.168.128.210:5000'
+
 if [ "$i1" = 'base' ]; then
-    i1='base'
+    i1="${ipaddress}/base"
 else
     i1="${SUDO_USER}:$i1"
 fi

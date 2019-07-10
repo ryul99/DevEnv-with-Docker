@@ -1,0 +1,17 @@
+#!/bin/bash
+
+printf "Enter tag of image to be tagged again ('base' cannot be tag) : "
+read i1
+if [ "$i1" = 'base' ]; then
+    printf "'base' cannot be tag\n"
+    exit 1
+fi
+
+printf "Enter tag ('base' cannot be tag) : "
+read i2
+if [ "$i2" = 'base' ]; then
+    printf "'base' cannot be tag\n"
+    exit 1
+fi
+
+docker tag "${SUDO_USER}:$i1" "${SUDO_USER}:$i2"

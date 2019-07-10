@@ -1,0 +1,8 @@
+#!/bin/bash
+
+printf "Image list of Registry\n"
+echo "$(curl -X GET http://192.168.128.210:5000/v2/_catalog)"
+printf "Enter image name to see tags : "
+read i1
+result = `curl -X GET http://192.168.128.210:5000/v2/${i1}/tags/list`
+echo "$result"

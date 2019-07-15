@@ -18,10 +18,24 @@ fi
 printf "image tag : $i1\n"
 
 USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
-
-docker run -it --init --name "${SUDO_USER}_$i2" \
---mount type=bind,source="$USER_HOME",target="$USER_HOME" \
--e LOCAL_USER_ID="$SUDO_UID" -e LOCAL_USER_NAME="$SUDO_USER" \
--e LOCAL_GROUP_ID="$SUDO_GID" -e LOCAL_USER_HOME="$USER_HOME" \
---cgroup-parent=/normal_users \
-"$i1"
+USER_HOME2="/home2/${SUDO_USER}"
+Public_DB='/home/Public_DB'
+Public_DB2='/home2/Public_DB'
+if [ -d "$USER_HOME2" ]; then 
+    docker run -it --init --name "${SUDO_USER}_$i2" \
+    --mount type=bind,source="$USER_HOME",target="$USER_HOME" \
+    --mount type=bind,source="$USER_HOME2",target="$USER_HOME2" \
+    --mount type=bind,source="$Public_DB2",target="$Public_DB",readonly \
+    -e LOCAL_USER_ID="$SUDO_UID" -e LOCAL_USER_NAME="$SUDO_USER" \
+    -e LOCAL_GROUP_ID="$SUDO_GID" -e LOCAL_USER_HOME="$USER_HOME" \
+    --cgroup-parent=/normal_users \
+    "$i1"
+else
+    docker run -it --init --name "${SUDO_USER}_$i2" \
+    --mount type=bind,source="$USER_HOME",target="$USER_HOME" \
+    --mount type=bind,source="$Public_DB2",target="$Public_DB",readonly \
+    -e LOCAL_USER_ID="$SUDO_UID" -e LOCAL_USER_NAME="$SUDO_USER" \
+    -e LOCAL_GROUP_ID="$SUDO_GID" -e LOCAL_USER_HOME="$USER_HOME" \
+    --cgroup-parent=/normal_users \
+    "$i1"
+fi

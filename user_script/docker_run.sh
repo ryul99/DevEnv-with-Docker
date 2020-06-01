@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Run $1 image as $2 container"
+echo "Run '$1' image as '$2' container"
 USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
 docker run -it --init --name "$2" \
     --mount type=bind,source="$USER_HOME",target="$USER_HOME" \

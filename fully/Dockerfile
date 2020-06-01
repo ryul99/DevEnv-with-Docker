@@ -1,4 +1,4 @@
-FROM centos-essential
+FROM base
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     make git gcc gcc-c++ unzip wget \

@@ -1,6 +1,6 @@
-FROM centos:7
+FROM ubuntu:latest  # ubuntu/debian based Docker image
 
-RUN yum -y update && yum -y install \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     curl \
     sudo

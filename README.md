@@ -18,7 +18,7 @@ making user-based development environment on linux with docker
 
 1. Change base image of `gosu/Dockerfile` which you need
 1. Build `gosu` directory with `docker build -t gosu ./gosu`
-1. mount home directory to docker container
+1. run container with script (`user_script/docker_run.sh`)
 
 ## for Server Admin
 

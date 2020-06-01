@@ -20,6 +20,11 @@ making user-based development environment on linux with docker
 1. Build `gosu` directory with `docker build -t gosu ./gosu`
 1. run container with script (`user_script/docker_run.sh`)
 
+## Script
+
+- docker_run: `sudo docker_run.sh "image" "container-name-you-want'`
+- docker_exec: `sudo docker_exec.sh "container" "command"`
+
 ## for Server Admin
 
 1. add user or group to sudoers (this user only can run `docker_*` with `sudo`)

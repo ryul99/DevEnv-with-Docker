@@ -1,5 +1,5 @@
 # ubuntu/debian based Docker image
-FROM base
+FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \

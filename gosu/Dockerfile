@@ -4,7 +4,8 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     curl \
-    sudo
+    sudo \
+    gnupg
 
 RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4
 RUN curl -o /usr/local/bin/gosu -SL "https://github.com/tianon/gosu/releases/download/1.4/gosu-amd64" \

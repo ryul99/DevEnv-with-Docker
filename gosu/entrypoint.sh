@@ -17,7 +17,7 @@ then
     useradd --shell /bin/bash -u $USER_ID -g $GROUP_ID -o -c "" -M $USER_NAME
     echo -e 'snip\nsnip' | passwd $USER_NAME
     chmod u+w /etc/sudoers
-    echo "#$USER_ID ALL=(ALL) ALL" >> /etc/sudoers
+    echo "#$USER_ID ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
     chmod u-w /etc/sudoers
     export HOME=$USER_HOME
     export USER=$USER_NAME

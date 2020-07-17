@@ -1,8 +1,7 @@
 FROM ubuntu:latest  
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    make git gcc gcc-c++ unzip wget \
-    perl openssl-devel python-devel python-pip \
-    openjdk-8-jdk ncurses-devel bzip2-devel xz-devel
+    make git unzip wget bzip2 xz-utils \
+    openssl python3 python-pip build-essential
 
 RUN apt-get install build-essential
